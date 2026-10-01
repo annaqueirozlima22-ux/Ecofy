@@ -11,31 +11,56 @@
                 height: auto;
             }
         </style>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
 
-        <header>
-            <img src="1.png" alt="Logo do site" class="logo">
-        </header>
-    </body>
-</html>
+    <body>
 <!-- Conexão obrigatória com o arquivo de estilização separado -->
-<link rel="stylesheet" href="style.css">
 
 <!-- ==========================================
      SEÇÃO 1: HEADER/HERO
      ========================================== -->
 <header class="hero">
     <div class="container">
+<img src="governo_estado.png" alt="Governo do Estado" class="logo-governo">
+      
+<img src="colegio-civico-militar-do-parana-logo.png" alt="Colégio Cívico-Militar do Paraná" class="logo-colegio">
 
-        <img src="logo.png" alt="Ecofy" class="logo">
+<img src="1.png" alt="Ecofy" class="logo">
 
         <h1>Plataforma para Descarte Correto de Resíduos</h1>
         <p>Tornando a reciclagem simples, rápida e acessível para todos.</p>
 
     </div>
 </header>
+<!-- ==========================================
+     BUSCA DE RESÍDUOS
+     ========================================== -->
+<section class="busca-residuos">
+    <div class="container">
 
+        <h2>Como descartar?</h2>
+
+        <p>
+            Digite o resíduo que você deseja descartar e descubra
+            a forma correta de fazer isso.
+        </p>
+
+        <div class="campo-busca">
+            <input
+                type="text"
+                id="residuoBusca"
+                placeholder="Ex.: pilha, vidro, óleo de cozinha..."
+            >
+
+            <button id="btnBuscarResiduo">
+                Buscar
+            </button>
+        </div>
+<!-- Aqui aparecerá o resultado da pesquisa -->
+<div id="resultadoBusca" class="resultado-busca"></div>
+    </div>
+</section>
 <!-- ==========================================
      SEÇÃO 2: DESCRIÇÃO DO PROJETO
      ========================================== -->
@@ -164,6 +189,23 @@
         </a>
 
     </div>
+<!-- ==========================================
+     PONTOS DE COLETA
+     ========================================== -->
+
+<section class="pontos-coleta">
+
+    <div class="container">
+
+        <h2>📍 Pontos de Coleta</h2>
+
+        <p>
+            Encontre locais adequados para entregar seus resíduos
+            e contribuir com o descarte correto.
+        </p>
+
+    </div>
+
 </section>
 
 <!-- ==========================================
@@ -188,3 +230,6 @@
         alert('Obrigado pelo interesse! Esta é uma página de apresentação do projeto em fase de requisitos.');
     });
 </script>
+<script src="script.js"></script>
+</body>
+</html>

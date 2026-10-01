@@ -142,3 +142,139 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* Deixa a logo do Ecofy redonda */
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Brasão institucional no canto superior direito */
+.logo-governo {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 55px;
+    height: auto;
+}
+
+/* Brasão do Colégio Cívico-Militar */
+.logo-colegio {
+    position: absolute;
+    top: 31px;
+    right: 95px;
+    width: 55px;
+    height: auto;
+}
+
+/* ==========================================
+   ÁREA DE BUSCA DE RESÍDUOS
+   ========================================== */
+
+.busca-residuos {
+    background-color: #f4f8f4;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.busca-residuos h2 {
+    margin-bottom: 10px;
+}
+
+.busca-residuos p {
+    margin-bottom: 25px;
+}
+
+/* Organiza o campo de pesquisa e o botão */
+.campo-busca {
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Campo onde o usuário digita o resíduo */
+.campo-busca input {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+}
+
+/* Botão de buscar */
+.campo-busca button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background-color: #2e7d32;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efeito quando o mouse passa pelo botão */
+.campo-busca button:hover {
+    background-color: #1b5e20;
+}
+
+/* ==========================================
+   RESULTADO DA BUSCA DE RESÍDUOS
+   ========================================== */
+
+.resultado-busca {
+    max-width: 650px;
+    margin: 25px auto 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* O estilo só aparece quando existe uma resposta */
+.resultado-busca:not(:empty) {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #2e7d32;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Título do resultado */
+.resultado-busca h3 {
+    color: #2e7d32;
+    margin-bottom: 12px;
+}
+
+/* Textos do resultado */
+.resultado-busca p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   PONTOS DE COLETA
+   ========================================== */
+
+.pontos-coleta {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Título da área de pontos de coleta */
+.pontos-coleta h2 {
+    color: #2e7d32;
+    margin-bottom: 12px;
+}
+
+/* Texto explicativo */
+.pontos-coleta p {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
