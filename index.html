@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+   <!-- Estilo necessário para exibir o mapa Leaflet -->
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+> 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -30,51 +35,39 @@
 
         <h1>Plataforma para Descarte Correto de Resíduos</h1>
         <p>Tornando a reciclagem simples, rápida e acessível para todos.</p>
-
+<!-- Botão que leva o visitante até a busca de resíduos -->
+<a href="#busca" class="btn">
+    ♻️ Começar a reciclar
+</a>
     </div>
 </header>
 <!-- ==========================================
-     BUSCA DE RESÍDUOS
-     ========================================== -->
-<section class="busca-residuos">
-    <div class="container">
-
-        <h2>Como descartar?</h2>
-
-        <p>
-            Digite o resíduo que você deseja descartar e descubra
-            a forma correta de fazer isso.
-        </p>
-
-        <div class="campo-busca">
-            <input
-                type="text"
-                id="residuoBusca"
-                placeholder="Ex.: pilha, vidro, óleo de cozinha..."
-            >
-
-            <button id="btnBuscarResiduo">
-                Buscar
-            </button>
-        </div>
-<!-- Aqui aparecerá o resultado da pesquisa -->
-<div id="resultadoBusca" class="resultado-busca"></div>
-    </div>
-</section>
-<!-- ==========================================
      SEÇÃO 2: DESCRIÇÃO DO PROJETO
      ========================================== -->
+
 <section class="descricao">
     <div class="container">
+
         <h2>O Projeto</h2>
 
         <p>
-            Nossa iniciativa consiste no desenvolvimento de uma plataforma digital focado em orientar os cidadãos sobre a destinação correta de materiais recicláveis e resíduos especiais. O sistema permite que o usuário identifique o componente de forma automatizada através de uma fotografia ou por meio de busca textual pelo nome do objeto.
+            Nossa iniciativa consiste no desenvolvimento de uma
+            plataforma digital focada em orientar os cidadãos sobre
+            a destinação correta de materiais recicláveis e resíduos
+            especiais. O sistema permite que o usuário identifique
+            o componente de forma automatizada através de uma
+            fotografia ou por meio de busca textual pelo nome do objeto.
         </p>
 
         <p>
-            Após o reconhecimento do material, o ambiente digital exibe instruções precisas de manejo e mapeia os pontos de coleta credenciados mais próximos, como ecopontos e cooperativas. Para impulsionar o engajamento contínuo, a plataforma conta com um sistema de pontuação e atividades educativas voltadas para a rotina da comunidade.
+            Após o reconhecimento do material, o ambiente digital
+            exibe instruções precisas de manejo e mapeia os pontos
+            de coleta credenciados mais próximos, como ecopontos e
+            cooperativas. Para impulsionar o engajamento contínuo,
+            a plataforma conta com um sistema de pontuação e
+            atividades educativas voltadas para a rotina da comunidade.
         </p>
+
     </div>
 </section>
 
@@ -106,54 +99,6 @@
 
         </div>
     </div>
-</section>
-
-<!-- ==========================================
-     SEÇÃO 4: ANÁLISE DE REQUISITOS TÉCNICOS
-     ========================================== -->
-<section class="requisitos">
-    <div class="container">
-
-        <h2>Análise de Requisitos</h2>
-
-        <div class="requisitos-grupo">
-            <h3>Requisitos Funcionais (RF)</h3>
-
-            <ul>
-                <li>O sistema deve permitir a busca textual por nome de objetos e materiais.</li>
-                <li>O sistema deve integrar a câmera do dispositivo para capturar fotos dos resíduos.</li>
-                <li>O sistema deve classificar o tipo de resíduo com base na imagem enviada pelo usuário.</li>
-                <li>O sistema deve exibir a localização dos pontos de descarte em um mapa integrado.</li>
-                <li>O sistema deve gerenciar uma carteira de pontos vinculada ao perfil de cada usuário.</li>
-                <li>O sistema deve disponibilizar questionários educativos semanais sobre preservação ambiental.</li>
-            </ul>
-        </div>
-
-        <div class="requisitos-grupo">
-            <h3>Requisitos Não-Funcionais (RNF)</h3>
-
-            <ul>
-                <li>A interface do aplicativo deve ser responsiva, funcionando perfeitamente em smartphones e computadores.</li>
-                <li>O tempo de resposta na identificação de materiais não deve passar de 3 segundos.</li>
-                <li>O armazenamento e o tratamento dos dados dos usuários devem cumprir a LGPD.</li>
-                <li>O mapa de geolocalização deve atualizar os dados de proximidade em tempo real.</li>
-            </ul>
-        </div>
-
-        <div class="requisitos-grupo">
-            <h3>Requisitos de Dados (RD)</h3>
-
-            <ul>
-                <li>Cadastro do Usuário: Nome, e-mail, senha e coordenadas de geolocalização.</li>
-                <li>Catálogo de Resíduos: Nome técnico, classificação do material e instruções de segurança para descarte.</li>
-                <li>Base de Ecopontos: Endereço completo, tipo de material aceito e horários de funcionamento.</li>
-                <li>Histórico de Pontuação: Registro de atividades concluídas e saldo de pontos do usuário.</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
 <!-- ==========================================
      SEÇÃO 5: IMPACTO ESPERADO
      ========================================== -->
@@ -172,6 +117,35 @@
     </div>
 </section>
 <!-- ==========================================
+     BUSCA DE RESÍDUOS
+     ========================================== -->
+<section class="busca-residuos" id="busca">
+    <div class="container">
+
+        <h2>Como descartar?</h2>
+
+        <p>
+            Digite o resíduo que você deseja descartar e descubra
+            a forma correta de fazer isso.
+        </p>
+
+        <div class="campo-busca">
+            <input
+                type="text"
+                id="residuoBusca"
+                placeholder="Ex.: pilha, vidro, óleo de cozinha..."
+            >
+
+            <button id="btnBuscarResiduo">
+                Buscar
+            </button>
+        </div>
+<!-- Aqui aparecerá o resultado da pesquisa -->
+<div id="resultadoBusca" class="resultado-busca"></div>
+    </div>
+</section>
+
+<!-- ==========================================
      PONTOS DE COLETA
      ========================================== -->
 
@@ -185,7 +159,11 @@
             Encontre locais adequados para entregar seus resíduos
             e contribuir com o descarte correto.
         </p>
-
+<!-- Espaço onde aparecerá o mapa dos ecopontos -->
+<div id="mapa-ecofy"></div>
+<!-- Mensagens sobre os pontos de coleta encontrados -->
+<p id="status-ecopontos" aria-live="polite">
+    Pesquise um resíduo para encontrar pontos de coleta em Foz do Iguaçu.
     </div>
 
 </section>
@@ -232,6 +210,8 @@
         alert('Obrigado pelo interesse! Esta é uma página de apresentação do projeto em fase de requisitos.');
     });
 </script>
+<!-- Biblioteca responsável pelo mapa interativo -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

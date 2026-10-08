@@ -278,3 +278,60 @@ footer p {
     margin: 0 auto;
     line-height: 1.6;
 }
+
+/* ==========================================
+   DEIXAR AS SEÇÕES EXPLICATIVAS MAIS COMPACTAS
+   ========================================== */
+
+/* Reduz o espaço acima e abaixo das explicações */
+.descricao,
+.problema-solucao {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+/* Aproxima os títulos dos textos */
+.descricao h2,
+.problema-solucao h2 {
+    margin-bottom: 12px;
+}
+
+/* Reduz o espaço entre os parágrafos */
+.descricao p,
+.problema-solucao p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+/* ==========================================
+   BOTÃO COMEÇAR A RECICLAR
+   ========================================== */
+
+.hero .btn {
+    display: inline-block;
+    background-color: #2e7d32;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+/* Efeito quando o mouse passa pelo botão */
+.hero .btn:hover {
+    background-color: #1b5e20;
+}
+/* ==========================================
+   MAPA DOS ECOPONTOS - ECOFY
+   ========================================== */
+
+#mapa-ecofy {
+    width: 100%;
+    height: 400px;
+    margin-top: 25px;
+    border-radius: 12px;
+    background-color: #e8f2e8;
+    border: 2px solid #c5dfc5;
+}

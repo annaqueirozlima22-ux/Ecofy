@@ -266,3 +266,100 @@ campoResiduo.addEventListener("input", function () {
     resultadoBusca.innerHTML = "";
 
 });
+// ==========================================
+// MAPA INTERATIVO DO ECOFY
+// ==========================================
+
+// Cria o mapa centralizado em Foz do Iguaçu
+const mapaEcofy = L.map("mapa-ecofy").setView(
+    [-25.5163, -54.5854],
+    12
+);
+
+// Exibe o mapa usando o serviço Esri World Street Map
+L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+        attribution: "Tiles © Esri"
+    }
+).addTo(mapaEcofy);
+// ==========================================
+// BUSCA AUTOMÁTICA DE ECOPONTOS
+// ==========================================
+
+async function buscarEcopontos() {
+    const status = document.getElementById("status-ecopontos");
+
+    status.textContent = "🔎 Buscando pontos de coleta em Foz do Iguaçu...";
+
+    // Consulta pontos de reciclagem cadastrados na cidade
+    const consulta = `
+        [out:json][timeout:25];
+        area["name"="Foz do Iguaçu"]["boundary"="administrative"]->.cidade;
+        (
+            nwr["amenity"="recycling"](area.cidade);
+        );
+        out center;
+    `;
+
+    try {
+     const resposta = await fetch(
+    "https://overpass.private.coffee/api/interpreter",
+    {
+        method: "POST",
+        body: new URLSearchParams({ data: consulta })
+    }
+);
+        if (!resposta.ok) {
+            throw new Error("Erro na consulta");
+        }
+
+        const dados = await resposta.json();
+
+        status.textContent =
+            `📍 Encontramos ${dados.elements.length} locais cadastrados como pontos de reciclagem.`;
+
+        // Mostra os materiais aceitos em cada local cadastrado
+console.table(
+    dados.elements.map(function (local) {
+        return {
+            nome: local.tags?.name || "Sem nome",
+            pilhas: local.tags?.["recycling:batteries"] || "Não informado",
+            vidro: local.tags?.["recycling:glass"] || "Não informado",
+            papel: local.tags?.["recycling:paper"] || "Não informado",
+            plastico: local.tags?.["recycling:plastic"] || "Não informado",
+            oleo: local.tags?.["recycling:cooking_oil"] || "Não informado",
+            eletronicos: local.tags?.["recycling:electrical_items"] || "Não informado",
+            metal: local.tags?.["recycling:scrap_metal"] || "Não informado"
+        };
+    })
+);
+// Mostra no mapa os locais encontrados pela API
+dados.elements.forEach(function (local) {
+
+    // Alguns locais possuem coordenadas diretamente
+    // Outros possuem coordenadas dentro de "center"
+    const latitude = local.lat ?? local.center?.lat;
+    const longitude = local.lon ?? local.center?.lon;
+
+    // Só cria o marcador se houver coordenadas
+    if (latitude !== undefined && longitude !== undefined) {
+
+        // Usa o nome cadastrado ou uma descrição genérica
+        const nome = local.tags?.name || "Ponto de reciclagem cadastrado";
+
+        L.marker([latitude, longitude])
+            .addTo(mapaEcofy)
+            .bindPopup(nome);
+    }
+});
+    } catch (erro) {
+        status.textContent =
+            "Não foi possível consultar os ecopontos agora. Tente novamente mais tarde.";
+
+        console.error("Erro ao buscar ecopontos:", erro);
+    }
+}
+
+// Executa uma consulta inicial para testar a API
+buscarEcopontos();
